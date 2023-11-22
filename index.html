@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+    <html>
+    
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script src="https://cdn.tailwindcss.com"></script>
+        <link href="https://api.fontshare.com/css?f[]=author@400,700&display=swap" rel="stylesheet">
+        <title>SCUBE PROFILE</title>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.2/gsap.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.2/ScrollTrigger.min.js"></script>
+        <style type="text/css">
+            html,
+            body {
+                margin: 0;
+                padding: 0;
+            }
+    
+            .sec-mt {
+                margin-top: 48px;
+            }
+    
+            .sticky,.cus-sticky {
+                height: fit-content;
+                position: sticky;
+                position: -webkit-sticky;
+                z-index:50;
+            }
+    
+            #one,#success_page {
+                top: 0;
+                height: fit-content;
+                -webkit-transition: height 1s ease;
+                transition: height 1s ease;
+            }
+    
+            .container {
+                @apply max-w-7xl mx-auto px-6 md: px-12 xl:px-6;
+            }
+    
+            body {
+                font-family: 'Author', sans-serif;
+            }
+    
+            .card-tile {
+                border-radius: 12.492px;
+                background: #F8F8F8;
+                box-shadow: 0px 2.4009687900543213px 6.0024213790893555px 0px rgba(0, 0, 0, 0.15);
+            }
+
+            .box {
+                width: 75px;
+                height: 75px;
+                margin: auto;
+                box-shadow: 0px 2.114285707473755px 5.285714149475098px 1px rgba(0, 0, 0, 0.15);
+                -webkit-box-shadow: 0px 2.114285707473755px 5.285714149475098px 1px rgba(0, 0, 0, 0.15);
+            }
+    
+            .box span {
+                font-size: 12px;
+            }
+    
+    
+            .share-form input {
+                width: 100%;
+                background: #F4F6F7;
+                border: 1px solid #F3F3F3;
+                border-radius: 15px;
+            }
+    
+            .sub-title {
+                color: rgba(0, 0, 0, 0.45);
+            }
+
+            .play-store{
+                background: #EBF2CA;
+                box-shadow: 0px 2px 4px rgba(183, 187, 162, 0.4);
+            }
+            .apk-icon {
+                padding: 1px 6px;
+                gap: 6px;
+                border-radius: 11px;
+            }
+            .share-form-sec {
+                width: 90% !important;
+                margin: auto;
+            }
+            .custom-card {
+            background: #FFFFFF;
+            box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.15);
+            backdrop-filter: blur(12.5px);
+            border-radius: 12px;
+        }
+       
+        .custom-card-1 {
+            background: linear-gradient(308.44deg, #1C1E22 19.85%, #454950 83.97%);
+            border: 3px solid #4A4A4A;
+            border-radius: 12px;
+        }
+        .download-btn {
+            border-radius: 6px;
+            background: linear-gradient(145deg, #ED5728 0%, #F8772F 100%);
+        }
+        .share-btn{
+            color: #F7742F;
+            text-decoration-line: underline;
+        }
+        .share-btn-submit {
+            border-radius: 24px;
+            background: linear-gradient(145deg, #ED5728 0%, #F8772F 100%);
+        }
+        .custom-card-download {
+            background: linear-gradient(326.93deg, #2A303B 9.44%, #4B5662 105.59%);
+            border: 3px solid rgba(28, 31, 35, 0.3);
+            box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.15);
+            backdrop-filter: blur(12.5px);
+            border-radius: 12px;
+        }
+        .card-sub-title{
+            position: relative;
+            color:#606367;
+            z-index:9;
+        }
+        .card-sub-title:before {
+            position: absolute;
+            content: "";
+            height: 3px;
+            width: 18%;
+            bottom:-8px;
+            left:0px;
+            border-bottom:4px solid;
+            border-radius:2px;
+            margin:auto;
+            right:0;
+            }
+         .tile-contact{
+            border-radius: 16px;
+            background: linear-gradient(181deg, #22B93A 0%, #CDF0D0 100%);
+         }
+         .tile-email{
+            border-radius: 16px;
+            background: linear-gradient(208deg, #288ED9 0%, #D4F1FB 100%), #FFF;
+         }
+         .tile-whatsapp{
+            border-radius: 16px;
+            background: linear-gradient(211deg, #00C85C 0%, #C9F9D3 100%), #FFF;
+         }
+         .tile-messenger{
+            border-radius: 16px;
+            background: linear-gradient(195deg, #5F1BB7 0%, #DAE2F8 100%), #FFF;
+         }
+         .tile-gpay{
+            border-radius: 16px;
+            background: linear-gradient(183deg, #2DA94F 0%, #CDF0D0 100%), #FFF;
+         }
+         .tile-paypal{
+            border-radius: 16px;
+            background: linear-gradient(210deg, #03A9F4 0%, #C5F6FF 100%), #FFF;
+         }
+         .tile-paytm{
+            border-radius: 16px;
+            background: linear-gradient(210deg, #02B9EF 0%, #C6F1FF 100%), #FFF;
+         }
+         .tile-website{
+            border-radius: 16px;
+            background: linear-gradient(182deg, #24B1D1 0%, #B9F4FF 100%), #FFF;
+         }
+         .tile-drive{
+            border-radius: 16px;
+            background: linear-gradient(182deg, #3C7FD8 0%, #DBF2FF 100%), #FFF;
+         }
+         .tile-document{
+            border-radius: 16px;
+            background: linear-gradient(208deg, #28BEF6 0%, #C6F1FF 100%), #FFF;
+         }
+         .tile-cloud{
+            border-radius: 16px;
+            background: linear-gradient(181deg, #1086C9 0%, #C6F1FF 100%), #FFF;
+         }
+         .tile-custom{
+            border-radius: 16px;
+            background: linear-gradient(199deg, #F1F1F1 0%, #FFF 100%), #FFF;
+         }
+         .tile-education{
+            border-radius: 16px;
+            background: linear-gradient(184deg, #55B943 0%, #CDF0D0 100%);
+         }
+         .tile-experience{
+            border-radius: 16px;
+            background: linear-gradient(211deg, #CDE84E 0%, #CDF0D0 100%);
+         }
+         .tile-hobbies{
+            border-radius: 16px;
+            background: linear-gradient(183deg, #16CABF 0%, #B9EBE8 100%), #FFF;
+         }
+         .tile-info{
+            border-radius: 16px;
+            background: linear-gradient(183deg, #1D3A89 0%, #DAE2F8 100%), #FFF;
+         }
+         .tile-add-home{
+            border-radius: 16px;
+            background: linear-gradient(189deg, #D91817 1.66%, #FAD6CE 100%), #FFF;
+         }
+         .tile-add-office{
+            border-radius: 16px;
+            background: linear-gradient(181deg, #D94617 1.66%, #FAD6CE 100%);
+         }
+         .tile-facebook{
+            border-radius: 16px;
+            background: linear-gradient(186deg, #1E89F7 0%, #D0F5FC 100%), #FFF;
+         }
+         .tile-linkedin{
+            border-radius: 16px;
+            background: linear-gradient(215deg, #0A66C2 0%, #DDFFFD 100%), #FFF;
+         }
+         .tile-skype{
+            border-radius: 16px;
+            background: linear-gradient(215deg, #39A4DD 0%, #CFF8FF 100%), #FFF;
+         }
+         .tile-instagram{
+            border-radius: 16px;
+            background: linear-gradient(179deg, #EA3577 0%, #FFDBE5 100%), #FFF;
+         }
+         .tile-hangout{
+            border-radius: 16px;
+            background: linear-gradient(211deg, #22B93A 0%, #CDF0D0 100%);
+         }
+         .tile-twitter{
+            border-radius: 16px;
+            background: linear-gradient(180deg, #38A4DD 0%, #D0F5FC 100%), #FFF;
+         }
+         .profile-img{
+            border-radius: 118px;
+            background: #FFF;
+            box-shadow: 0px 3.2068965435028076px 20.04310417175293px 0px rgba(0, 0, 0, 0.25);
+         }
+         .profile-img img{
+            margin: auto;
+            position: absolute;
+            top: -17px;
+            left: 0;
+            right:0;
+         }
+         .line {
+            display: block;
+            height: 1px;
+            border: 0;
+            border-top: 1px solid #F8F8F8;
+            padding: 0;
+          }
+          .tile-sec{
+            justify-content: center;
+            display: flex;
+            flex-wrap: wrap;
+          }
+          .tile-box{
+            flex: 0 0 33.333333%;
+          }
+
+          .card-website{
+            background: #C7E8EE;
+            box-shadow: 0px 2.11429px 5.28571px rgba(0, 0, 0, 0.15);
+        }
+
+        </style>
+        <script>
+            tailwind.config = {
+                content: ['./src/**/*.{js,jsx,ts,tsx}'],
+                theme: {
+                    extend: {
+                        opacity: {
+                            45: '0.45',
+                        },
+                        borderOpacity: {
+                            65: '0.65',
+                        },
+                        fontFamily: {
+                            UrbanistRegular: ['Urbanist, sans-serif'],
+                        },
+                        colors: ({ colors }) => ({
+                            inherit: colors.inherit,
+                            current: colors.current,
+                            transparent: colors.transparent,
+                            primary: "#CAEFD7",
+                            secondary: "#ABC9E9",
+                            info: "#F0E8C9",
+                            black: colors.black,
+                            white: colors.white,
+                            slate: colors.slate,
+                            btn_left: '#92C0ED',
+                            btn_right: '#77E1E1',
+                            text_color: "#939FA7",
+                            text_black: "#153750",
+                            gray: {
+                                50: "#FAFAFC",
+                                100: "#E9E9EC",
+                                200: "#C6C8CD",
+                                300: "#ACAEB6",
+                                400: "#92959F",
+                                500: "#777C87",
+                                600: "#5D6370",
+                                700: "#434959",
+                                800: "#293041",
+                                900: "#0f172a",
+                            },
+                            zinc: colors.zinc,
+                            neutral: colors.neutral,
+                            stone: colors.stone,
+                            red: colors.red,
+                            orange: colors.orange,
+                            amber: colors.amber,
+                            yellow: colors.yellow,
+                            lime: colors.lime,
+                            green: colors.green,
+                            emerald: colors.emerald,
+                            teal: colors.teal,
+                            cyan: colors.cyan,
+                            sky: colors.sky,
+                            blue: colors.blue,
+                            indigo: colors.indigo,
+                            violet: colors.violet,
+                            purple: colors.purple,
+                            fuchsia: colors.fuchsia,
+                            pink: colors.pink,
+                            rose: colors.rose,
+                        }),
+                    },
+                },
+                plugins: [],
+            }
+        </script>
+       
+        <script type="text/javascript">
+            function toggleModal(modalID) {
+                document.getElementById(modalID).classList.toggle("hidden");
+                document.getElementById(modalID + "-backdrop").classList.toggle("hidden");
+                document.getElementById(modalID).classList.toggle("flex");
+                document.getElementById(modalID + "-backdrop").classList.toggle("flex");
+                let clsName = document.getElementById('download-sec').className;
+                console.log(clsName);
+                if(clsName.includes('bg-white')) {
+                    document.getElementById('download-sec').classList.add("bg-transparent");
+                    document.getElementById('download-sec').classList.remove("bg-white");
+                    document.getElementById('verticalLine').classList.remove("line");
+                    
+                } else {
+                    document.getElementById('download-sec').classList.add("bg-white");
+                    document.getElementById('download-sec').classList.remove("bg-transparent");
+                    document.getElementById('verticalLine').classList.add("line");
+                }
+            }
+            function download() {
+                let content = "BEGIN%3AVCARD%0D%0AVERSION%3A3.0%0D%0AFN%3BCHARSET%3DUTF-8%3AAman%20S%20Shah%0D%0AN%3BCHARSET%3DUTF-8%3A%3BAman%20S%20Shah%3B%3B%3B%0D%0AEMAIL%3BCHARSET%3DUTF-8%3Btype%3DWORK%2CINTERNET%3Ajtnfashions%40gmail.com%0D%0APHOTO%3BENCODING%3Db%3BTYPE%3Dimage%2Fpng%3A%2F9j%2F4AAQSkZJRgABAQAAAQABAAD%2F4gIoSUNDX1BST0ZJTEUAAQEAAAIYAAAAAAIQAABtbnRyUkdCIFhZWiAAAAAAAAAAAAAAAABhY3NwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAA9tYAAQAAAADTLQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAlkZXNjAAAA8AAAAHRyWFlaAAABZAAAABRnWFlaAAABeAAAABRiWFlaAAABjAAAABRyVFJDAAABoAAAAChnVFJDAAABoAAAAChiVFJDAAABoAAAACh3dHB0AAAByAAAABRjcHJ0AAAB3AAAADxtbHVjAAAAAAAAAAEAAAAMZW5VUwAAAFgAAAAcAHMAUgBHAEIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAFhZWiAAAAAAAABvogAAOPUAAAOQWFlaIAAAAAAAAGKZAAC3hQAAGNpYWVogAAAAAAAAJKAAAA%2BEAAC2z3BhcmEAAAAAAAQAAAACZmYAAPKnAAANWQAAE9AAAApbAAAAAAAAAABYWVogAAAAAAAA9tYAAQAAAADTLW1sdWMAAAAAAAAAAQAAAAxlblVTAAAAIAAAABwARwBvAG8AZwBsAGUAIABJAG4AYwAuACAAMgAwADEANv%2FbAEMAIRcZHRkVIR0bHSUjISgyUzYyLi4yZklNPFN5an99d2p0coWWv6KFjbWQcnSm46i1xszW2NaBoOv86dD6v9LWzv%2FbAEMBIyUlMiwyYjY2Ys6JdInOzs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozv%2FAABEIAMgAyAMBIgACEQEDEQH%2FxAAaAAACAwEBAAAAAAAAAAAAAAAAAQIDBAUG%2F8QAMxAAAgIBAgQEBQEIAwAAAAAAAAECAxEEIRIxQVEFEyJhMkJxgaHwFCMzUmKRscEk0fH%2FxAAXAQEBAQEAAAAAAAAAAAAAAAAAAQID%2F8QAHREBAQEAAwEAAwAAAAAAAAAAAAERAiExEkFRYf%2FaAAwDAQACEQMRAD8AqiiYktiSOTsBgADQxDKAAGADQhgAwGEA8AMAwPAIYQsDAZQhgMADAwAAGAAAYAqOehoSJIw2BhgZQDAAAaDAwhDAYAM5%2FiGptpsjGtuKaznHMyw116nnzM%2FVFxLXbQzkR8UtTy4RaLb%2FABFOC8rKn7rkMNjpgZ9JqlfSpSxGS2ZpAAAYAMAABgNFCGABAAwA5xJCRJGWwMMDQCSGMYQgGRtnGuuU5ckgK7tTClern2ObqNXbf6VLhj2T5lN1ztscpdXkrcmbkYtDTXUE%2B4shuVlLHbkDTS9hRlwvllFseF9dmBKjUy08nw8pc8nZ0dqspWHk4Elwzx0L9LfKmzMd%2FbuSxqV6AZCqyNkU11LDLQABlQAAwAAAAAYAYENIEiSMtDADwAAPAJDADD4pJqlJPZvdG2TSW%2FJczl%2BI6hSflJLb8FiXxz928I06fSqclxtlVK3OhRsxyuHDjrTVo6YpYgs92XvTVSW9cX9grexcmYarPLQ6aS3pj9tiuXhVGPSpL7m7KJxaZpHnNdo5adqabcf8GaOX%2BuZ6fUUxtrlGSzlHmrYSrulB9GalYsdDwu7htdT5SWx1jz2meNTUts8SPQrkKsMAGAAMMAAYGACAYAYkNIRJEaCGAwEPADAy6m2NOW98LKXv%2BkcS2bnbKb5t5N%2FitmJqtfVnONRjlVlb4d2aqb4x3kzJCDkvY011UOOJSee6Jca47%2BHRo1VUko8SyboYwefnp5VPjg%2BKK6xaeP7GzT62T4YYyzOYs7dVrqVz1VNfxTWURlOXlviWNjmSrolbmXE8vukhDK6D11S3y2u6Of4lFOcbIbxkspo6NdGnglww4W%2BWf%2BzPraUtLNY2i01noWJjmabbUVvpnfL6Lmehql5lUJ%2FzJM8ynutz0ejSWlrxy4UarMXDAeCKQwGAhgAAA8ABhJCRIigAABgLInIDm%2BLUSbVq5Ywzls9FdFW1yhLk0cSVEq%2BKE1uv1ksrNiymDlDES6vR4X7xNhp9mkjpVLKRm10k6Y%2FLUKnFRfs2919CGjq4r%2BLsy%2B%2B6Ls8uPJc2T0M4ec1lfYm1cxvnXxQwc2zw7imlLOF8yZ2fTw8yqbjGST6l8ZY4aGEEvLnNLquj%2BpLWxf7HNS7bm9RTWUynU1qVUoy5NYZUeX4cPLjlM9Lp4uNFcWsNRSwULTRjq44%2BGMdk%2BS%2FWDWi%2BpmGADAAAYBgBgAAAFGIYsibMqeRNkWyLYVJyI8RFsRBPJg17l5ntw7Gwp1VbnXt0Ao0%2FI13XeTT7vZGDTycJb%2Fc230%2FtNKlH5d8Cztd6c%2BcpWy9CNOm098WpL8FdFUo2YlvF9EdPTaeM0nJTg0u65lP7TjXO6pedS248ssuvknVw%2FC18LZa6vKjtxz27pGHVq%2BxTVaflJZfHs8%2BwRs09jlWs8ydu8H7lOkf%2FABoNkpyUnBN4zJfjf%2FRCrEvU315DAZpkDwCAoBgAAADCEAwCueJsBMy0TIsbIgAAMikA8BgDBfX5VuVjhlv9GX6S%2FhXC3sW21RthwyW3%2BDm2KVVji9mu3UvrO424am2llZL6tVCvZywYadVwvElk20%2BVbiUkvYnjW7GyvV1OeHJZNDw4vbYzVQphLijFNkrdXXVHLl06GmUoR8utRMnnO3xCuNazGGcijZbqrFCKcYdWb41qpcCWMEkLUgQDNIaABhCGMApDAAAAAI5omS6EWZaRIk2RCgAGQAE41TlyiyTolFZf4LhsVIxa2HFbtzSN3lSljOcMz62tx1CytpRHibvTn%2BW%2FdMnB2Qw1g0KvdZRq0%2Bni5ptD6X5ZapahtKCxnbPY0w0Mp%2BqfqkzqV1xS5IswgijT0KmG3XcuhLztLXbjdrP2CyShXKT2SWSekg4aSqEuagk%2F7FiVUhlrpXRsi65R9ypqIxDCgBgEGAwAAGAAAOaIYYyyNItFkNNbPlHC7vY16SpRTbXq7mpIuM3kwQ0H88%2FskaIaauvlHfu9zRgZek2q3DYokuKWEapciKiuXYqM3CinxGhShTZ%2FK2n9%2FwDw1TWGO2PmaaS7bkviy9uXGrYlGLXIuUcElDfJyddW1Sbiu5YVx2Q3JJZKyq1kuKMKVzskov6dfwb1skcvTN6nxFy%2BWtfk6prizy%2FQABGmScVLmiLr7MknvgbeFl7ICtxa6CLU8t%2BwnFMLqsCUo4IkUAABXMyX0w%2BZlNUeKS7G2McYXuiyJaurWJNFpUn%2B%2Bf0LQyTeJJdwGLOFkA5v6EYPKb7slyRGtfu0ASimthQWzT5BlxeGSi8lGSyrhbwOCytzRYt8lTWGc7G5UJeky6u1wqfd8jTORz7lLUXRhHfLJWo2%2BEVcGndjW83n7HQIVQVdUYLklgmtzpHO3aBfMMjJ4a5hEZfGiwqn%2FFj9CctlkCQCTysggBrOxW0WkJrqFiADAislFfCl9C%2FGOF%2B4oIm%2BS%2Bppk4PNsn9i4ppWVJ%2F1FkXu12IGw5vHYOuewk8Ry9uoBJ%2Blir%2BBEmk1uJQS5ZX3AJIhF4lhjk2mt2UzeJdSjS91gzSkaItSSa3MuojPzeGEW%2BLdexmtRl1NuPSubNWg0vlR8ya9b%2FBZDTRhBPhjOxb5fcvjlLd5ZJC8ushgAGmQRxlsa6jApltavZFk%2FhZCf8RFkvhAjCXpJJbFUeZcACayhiYFYDls2BGlcfhi%2FwC45oANMnp%2FnX9X%2BiUN5yftgAAcuWO7JYXYAIGAABXYuQpV5QAUZ23TNPPPp3NcJ8cFLGM9AAgkAAAAAARXxEgACqfxonP4AAohXjd9ixPKACBgAAQnzQAAaj%2F%2F2Q%3D%3D%0D%0ATEL%3BTYPE%3DCELL%3A%2B91%209702058336%0D%0ALABEL%3BCHARSET%3DUTF-8%3BTYPE%3DWORK%3AWork%0D%0AADR%3BCHARSET%3DUTF-8%3BTYPE%3DWORK%3A%3B%3B202%5C%2C%20Sigma%20estate%202%5C%2C%20Sayani%20road%5C%2C%20Prabhadevi%3BMumbai%3BMaharashtra%3B400025%3BIndia%0D%0ATITLE%3BCHARSET%3DUTF-8%3ACreatives%20production%20and%20Marketing%20head%0D%0AORG%3BCHARSET%3DUTF-8%3AJTN%20Fashions%0D%0AURL%3BCHARSET%3DUTF-8%3Btype%3DWork%3Awww.jtnfashions.co%0D%0AURL%3BCHARSET%3DUTF-8%3Btype%3DWhatsapp%3Ahttps%3A%2F%2Fwa.me%2F9702058336%3Ftext%3DHi%0D%0AREV%3A2023-07-19T18%3A45%3A39.292Z%0D%0AEND%3AVCARD%0D%0A";
+                window.open("data:text/x-vcard;urlencoded," + content)
+                setTimeout(() => {
+                let ele = document.getElementById('main_sec');
+                if(ele) ele.style.display = 'none';
+
+                let ele1 = document.getElementById ('success_sec')
+                if(ele1) ele1.style.display = 'block';
+
+                let e = document.getElementById ('modal-title')
+                e.innerText = 'Contact have Been Downloaded Successfully !'
+                },100)
+            }
+            function _base64ToArrayBuffer(base64) {
+                var binary_string = window.atob(base64);
+                var len = binary_string.length;
+                var bytes = new Uint8Array(len);
+                for (var i = 0; i < len; i++) {
+                    bytes[i] = binary_string.charCodeAt(i);
+                }
+                return bytes.buffer;
+            }
+    
+            function submitForm() {
+                const userId = '63b7036b48499d3885c8365f'
+                let x = document.forms["contactForm"];
+                let ele = document.getElementById('errorMessage');
+                ele.innerText = ''
+    
+                if (!x.name.value || !x.email.value || !x.phone.value) {
+                    ele.innerText = 'Please Select required fields'
+                    return
+                }
+    
+                let obj = {
+                    name: x.name.value,
+                    email: x.email.value,
+                    designation: x.designation.value,
+                    company: x.company.value,
+                    phone: x.phone.value,
+                    user_id: userId
+                }
+    
+                const http = new XMLHttpRequest()
+                http.open('POST', '/share')
+                http.setRequestHeader('Content-type', 'application/json')
+                http.send(JSON.stringify(obj)) // Make sure to stringify
+                http.onload = function () {
+                    // success callback
+                    setTimeout(() => {
+                        let ele = document.getElementById('main_sec');
+                        if(ele) ele.style.display = 'none';
+        
+                        let ele1 = document.getElementById ('success_sec')
+                        if(ele1) ele1.style.display = 'block';
+        
+                        let e = document.getElementById ('modal-title')
+                        e.innerText = 'Your Details Has been Shared Successfully !'
+                        },100)
+                }
+    
+            }
+            function handleClick(type,value,label) {
+                if(type ==='LINK'){
+                    window.open(value,'_blank');
+                } else if(type ==='PHONE') {
+                    document.location.href = 'tel:'+value;
+                } else if(type ==='EMAIL') {
+                    window.location.href = "mailto:"+value+"?subject=Subject&body=Hi";
+                } else if(type ==='INFO') {
+                    let ele = document.getElementById('info-title')
+                    if(ele){
+                        ele.innerText = label.replace(/_/g, ' ').replace(/__/g, "\'").replace(/___/g, '');
+                      let ele2  =  document.getElementById('info-message')
+                      if(ele2) ele2.innerText = value.replace(/_/g, ' ');
+                    }
+                    toggleModal('info-form')
+                }
+            }
+
+            function copyMessage( ){
+                let ele = document.getElementById('info-message')
+                var text = ele.innerText;
+                navigator.clipboard.writeText(text).then(function() {
+                console.log('Async: Copying to clipboard was successful!');
+                }, function(err) {
+                console.error('Async: Could not copy text: ', err);
+                });
+            }
+
+        </script>
+    </head>
+    
+    <body>
+        <main class="main p-4 main_animation" id="main_sec">
+            <div class="relative" id="home">
+                <div id="one" class="cus-sticky mt-4">
+                    <div
+                        class="max-w-md m-auto p-6   custom-card-1">
+                         <div class='profile-img'>
+                         <img class="rounded-full w-24 h-24" src=https://drive.google.com/file/d/1VzHBtbJsbyRNd3IksFzFggMv1Eaf1H16/view?usp=sharing
+                           alt="profile picture">
+                         </div>
+                        <div class="flex items-center justify-center mt-14  space-x-6">
+                            <div class="font-medium  text-center">
+                                <h1 class="text-white font-bold text-base md:text-2xl">Raju Balwani</h1>
+                                <p class="text-white text-sm ">Director</p>
+                                <p class="text-white text-sm">20 Downtown</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class=" max-w-md m-auto flex items-center  justify-between px-6 py-6 bg-white" id="download-sec">
+                    <button class="download-btn cursor-pointer" onclick="download()">
+                        <span class="block text-white text-base px-4 md:px-8 py-3 rounded-full">Download Contact
+                        </span>
+                    </button>
+                    <a class="share-btn cursor-pointer"
+                        onclick="toggleModal('modal-id')">
+                        <span class="block text-base ">Share your
+                            Contact</span>
+                    </a>
+                </div>
+                <hr class=" max-w-md m-auto line pt-2" id="verticalLine" />
+                </div>
+                <div
+                                class="max-w-md m-auto p-6 ">
+                                <div>
+                                    <h1 class="text-2xl card-sub-title text-center ">Contact Details</h1>
+                                    <div class="grid grid-cols-3 gap-4  pt-8"><div class="flex flex-col items-center   ">
+                <div class="box p-4 cursor-pointer items-center flex justify-center text-center flex-col tile-contact" onclick=handleClick('PHONE','+919819642785','Mobile')>
+                                        <img src=https://scube-assets.s3.ap-south-1.amazonaws.com/app-profile-v3/contact.svg>
+                                        </div>
+                                        <span class="text-[#3B3E41]">Mobile </span>
+                                        </div>
+                                        <div class="flex flex-col items-center   ">
+                <div class="box p-4 cursor-pointer items-center flex justify-center text-center flex-col tile-email" onclick=handleClick('EMAIL','consultairinvpvtltd@yahoo.co.in','Work')>
+                                        <img src=https://scube-assets.s3.ap-south-1.amazonaws.com/app-profile-v3/email.svg>
+                                        </div>
+                                        <span class="text-[#3B3E41]">Work </span>
+                                        </div>
+                                        <div class="flex flex-col items-center   ">
+                <div class="box p-4 cursor-pointer items-center flex justify-center text-center flex-col tile-whatsapp" onclick=handleClick('LINK','https://wa.me/9819642785?text=I would like to know more about 20 Downtown!','Whatsapp')>
+                                        <img src=https://scube-assets.s3.ap-south-1.amazonaws.com/app-profile-v3/whatsapp.svg>
+                                        </div>
+                                        <span class="text-[#3B3E41]">Whatsapp </span>
+                                        </div>
+                                        
+                                    </div>
+                                </div>
+                            </div><div
+                                class="max-w-md m-auto p-6 ">
+                                <div>
+                                    <h1 class="text-2xl card-sub-title text-center ">Address & location</h1>
+                                    <div class="tile-sec  pt-8"><div class="flex flex-col items-center  tile-box ">
+                <div class="box p-4 cursor-pointer items-center flex justify-center text-center flex-col tile-add-office" onclick=handleClick('INFO','202,_Sigma_estate_2,_Sayani_road,_Prabhadevi_______________________________Mumbai_______________________________Maharashtra_______________________________India_______________________________400025','Work')>
+                                        <img src=https://scube-assets.s3.ap-south-1.amazonaws.com/app-profile-v3/location.svg>
+                                        </div>
+                                        <span class="text-[#3B3E41]">Work </span>
+                                        </div>
+                                        
+                                    </div>
+                                </div>
+                            </div><div
+                                class="max-w-md m-auto p-6 ">
+                                <div>
+                                    <h1 class="text-2xl card-sub-title text-center ">Website & Links</h1>
+                                    <div class="tile-sec  pt-8"><div class="flex flex-col items-center  tile-box ">
+                <div class="box p-4 cursor-pointer items-center flex justify-center text-center flex-col tile-website" onclick=handleClick('LINK','https://www.jtnfashions.co','Work')>
+                                        <img src=https://scube-assets.s3.ap-south-1.amazonaws.com/app-profile-v3/website.svg>
+                                        </div>
+                                        <span class="text-[#3B3E41]">Website </span>
+                                        </div>
+                                        
+                                    </div>
+                                </div>
+                    </div>
+                </div>
+    
+            </div>
+        </div>
+    </body>
+    
+    </html>
